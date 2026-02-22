@@ -13,7 +13,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"; 
 import { DialogDescription } from "@radix-ui/react-dialog";
-import { Github, Globe, PlayCircle, ArrowRight, ExternalLink } from "lucide-react"; 
+import { Github, PlayCircle, ArrowRight, ExternalLink } from "lucide-react"; 
 
 import {
   Tooltip,
