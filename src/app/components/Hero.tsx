@@ -1,12 +1,20 @@
 'use client'
 
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
 import Image from 'next/image'
+import { Button } from '@/components/ui/button'
 import { Github, Linkedin, Mail, Network } from 'lucide-react'
 import { SiLangchain, SiFastapi, SiNextdotjs } from "react-icons/si";
 import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 import { IoDocumentTextOutline } from "react-icons/io5";
+
+// Import Tooltip components (adjust path if your shadcn components are located elsewhere)
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 const XIcon = ({ className }: { className?: string }) => (
   <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" className={className}>
@@ -16,41 +24,62 @@ const XIcon = ({ className }: { className?: string }) => (
 
 export function Hero() {
   const resumeLink = process.env.NEXT_PUBLIC_RESUME_LINK || "#";
+
+  // Array to map through social links cleanly
+  const socialLinks = [
+    { name: 'X (Twitter)', href: 'https://x.com/noob_sagarr', icon: <XIcon className="h-6 w-6" />, hoverColor: 'hover:text-black' },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/sushil-sagar09/', icon: <Linkedin className="h-6 w-6" />, hoverColor: 'hover:text-[#0077b5]' },
+    { name: 'GitHub', href: 'https://github.com/sushil-sagar05', icon: <Github className="h-6 w-6" />, hoverColor: 'hover:text-black' },
+    { name: 'Email', href: 'mailto:sagarsushil1403@gmail.com', icon: <Mail className="h-6 w-6" />, hoverColor: 'hover:text-red-500', isEmail: true }
+  ];
+  
   return (
-    <section className="min-h-screen flex items-center px-4 bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
+    <section className="min-h-screen flex items-center px-4 py-20 bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
       
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-6 md:flex-row md:justify-between md:gap-12">
+      {/* Container: Centered on mobile, left-aligned on md+ screens */}
+      <div className="mx-auto w-full max-w-5xl flex flex-col items-center text-center md:items-start md:text-left gap-6">
         
-        <div className="w-full space-y-8 text-center md:w-3/5 md:space-y-10 md:text-left md:py-24">
+        {/* Avatar Area */}
+        <Image
+          src="/447.Productive.png"
+          alt="Sushil Sagar"
+          width={96}
+          height={96}
+          className="size-24 rounded-full bg-gray-50 object-cover shadow-sm border border-gray-200"
+          priority
+        />
+
+        {/* Text Area */}
+        <div className="flex flex-col gap-4">
           <RoughNotationGroup show={true}>
             
-            <h1 className="text-4xl font-bold leading-tight md:text-6xl text-gray-900">
-              Hi I'm, <span className="text-black">Sushil Sagar</span>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
+              Hi, I'm Sushil Sagar <span className="text-gray-300 font-normal hidden sm:inline-block mx-2">|</span> <span className="block sm:inline text-2xl md:text-4xl text-gray-500 mt-2 sm:mt-0 font-medium">Full Stack AI Developer</span>
             </h1>
 
-            <div className="space-y-8 font-serif leading-relaxed md:space-y-8 text-gray-700">
-              <p className="text-2xl font-light md:text-3xl leading-normal">
-                Full stack AI developer building
-                <span className="whitespace-nowrap ml-2">
+            <div className="mt-4 text-xl md:text-2xl font-serif leading-relaxed text-gray-700 max-w-3xl space-y-6">
+              <p>
+                Building{' '}
+                <span className="whitespace-nowrap">
                   <RoughNotation type="highlight" color="#fef08a" iterations={1} multiline={true}>
-                    <span className="text-black font-medium px-1">intelligent autonomous</span>
+                    <span className="text-black font-medium px-1">intelligent autonomous systems</span>
                   </RoughNotation>
                 </span>
-                {' '}
+                {' '}and{' '}
                 <span className="whitespace-nowrap">
                   <RoughNotation type="highlight" color="#bfdbfe" iterations={1} multiline={true}>
-                    <span className="text-black font-medium px-1">systems & webapps</span>
+                    <span className="text-black font-medium px-1">webapps</span>
                   </RoughNotation>
-                </span>
+                </span>.
               </p>
-              
-              <div className="space-y-3">
-                <p className='text-gray-400 text-sm font-sans uppercase tracking-wider font-semibold'>
-                    Building AI applications using
+
+              <div className="space-y-4">
+                <p className="text-gray-500 text-lg flex flex-wrap justify-center md:justify-start items-center gap-2 font-sans">
+                  Focusing on AI/ML pipelines, Agents, and Full-Stack Apps using:
                 </p>
-                
-                <div className="flex flex-wrap justify-center md:justify-start gap-3 items-center">
-                  
+
+                {/* Skills Row: Centered items on mobile */}
+                <div className="flex flex-wrap justify-center md:justify-start items-center gap-3 font-sans">
                   <div className="inline-flex items-center gap-2 px-3 py-2 bg-[#f1f1f1] border border-gray-300 rounded-xl transition-colors hover:bg-white hover:border-gray-400">
                     <Network className="w-4 h-4 text-gray-700" />
                     <span className="font-bold text-sm text-gray-800">Langgraph</span>
@@ -63,12 +92,8 @@ export function Hero() {
 
                   <div className="inline-flex items-center gap-2 px-3 py-2 bg-[#f1f1f1] border border-gray-300 rounded-xl transition-colors hover:bg-white hover:border-gray-400">
                     <SiFastapi className="w-4 h-4 text-[#009688]" /> 
-                    <span className="font-bold text-sm text-gray-800">Fastapi</span>
+                    <span className="font-bold text-sm text-gray-800">FastAPI</span>
                   </div>
-                  
-                  <span className="text-gray-300 font-serif italic text-xl px-1">
-                    &
-                  </span>
 
                   <div className="inline-flex items-center gap-2 px-3 py-2 bg-[#f1f1f1] border border-gray-300 rounded-xl transition-colors hover:bg-white hover:border-gray-400">
                     <SiNextdotjs className="w-4 h-4 text-black" />
@@ -76,72 +101,62 @@ export function Hero() {
                   </div>
                 </div>
               </div>
-
-              <p className="px-3 py-1 text-gray-500 text-lg md:text-lg md:py-2 hidden md:block border-l-4 border-green-200 bg-gray-50 pl-4">
-                focusing on 
-                <RoughNotation type="underline" color="#4ade80" strokeWidth={2} padding={2} multiline={true}>
-                    <span className="font-bold ml-2 text-xl text-black">AI/ML pipelines, AI Agents <span className='text-gray-400 font-normal'>and</span> Full-Stack Apps.</span>
-                </RoughNotation>
-              </p>
-
-              <div className="flex flex-col items-center gap-6 pt-4 md:flex-row md:items-center">
-                <span className="font-serif text-lg text-gray-500 md:text-lg italic">
-                  currently open to new opportunities.
-                </span>
-
-                <div className="flex flex-col gap-4 sm:flex-row">
-                <Button size="lg" asChild className="h-12 px-8 text-lg rounded-full shadow-md hover:shadow-xl transition-all hover:-translate-y-1">
-                <Link href="#contact">Contact Me</Link>
-                </Button>
-  
-                <Button 
-                size="lg" 
-    asChild 
-    className="h-12 px-8 text-lg bg-white text-black border border-gray-200 rounded-full hover:border-black hover:bg-gray-50 transition-all hover:-translate-y-1"
-  >
-    <Link 
-        href={resumeLink} 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="flex items-center gap-2"
-    >
-        <IoDocumentTextOutline className="w-5 h-5" />
-        Resume
-    </Link>
-  </Button>
-</div>
-              </div>
-
-              <div className="hidden md:flex items-center justify-start gap-3 pt-2 text-gray-400">
-                <Link href="https://x.com/noob_sagarr" target="_blank" className="hover:text-black hover:scale-110 transition-all">
-                  <XIcon className="h-6 w-6" />
-                </Link>
-                <Link href="https://www.linkedin.com/in/sushil-sagar09/" target="_blank" className="hover:text-[#0077b5] hover:scale-110 transition-all">
-                  <Linkedin className="h-6 w-6" />
-                </Link>
-                <Link href="https://github.com/sushil-sagar05" target="_blank" className="hover:text-black hover:scale-110 transition-all">
-                  <Github className="h-6 w-6" />
-                </Link>
-                <Link href="mailto:sagarsushil1403@gmail.com" className="hover:text-red-500 hover:scale-110 transition-all">
-                  <Mail className="h-6 w-6" />
-                </Link>
-              </div>
-
             </div>
           </RoughNotationGroup>
         </div>
 
-        <div className="hidden md:flex w-full justify-center md:justify-end md:w-2/5">
-          <div className="relative h-64 w-64 md:h-96 md:w-96 grayscale hover:grayscale-0 transition-all duration-700">
-            <Image
-              src="/447.Productive.png"
-              alt="Sushil Sagar working productively"
-              fill
-              className="rounded-full object-contain"
-              priority
-            />
-          </div>
+        {/* Availability */}
+        <span className="font-serif text-lg text-gray-400 italic">
+          currently open to new opportunities.
+        </span>
+
+        {/* Buttons: Centered on mobile */}
+        <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-2">
+          <Button size="lg" asChild className="h-12 px-8 text-lg rounded-full shadow-md hover:shadow-xl transition-all hover:-translate-y-1">
+            <Link href="#contact">Contact Me</Link>
+          </Button>
+  
+          <Button 
+            size="lg" 
+            asChild 
+            variant="outline"
+            className="h-12 px-8 text-lg bg-white text-black border border-gray-200 rounded-full hover:border-black hover:bg-gray-50 transition-all hover:-translate-y-1"
+          >
+            <Link 
+              href={resumeLink} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2"
+            >
+              <IoDocumentTextOutline className="w-5 h-5" />
+              Resume
+            </Link>
+          </Button>
         </div>
+
+        {/* Social Links with Tooltips: Centered on mobile */}
+        <div className="flex items-center justify-center md:justify-start gap-5 pt-3 text-gray-400">
+          <TooltipProvider>
+            {socialLinks.map((link) => (
+              <Tooltip key={link.name} delayDuration={100}>
+                <TooltipTrigger asChild>
+                  <Link 
+                    href={link.href} 
+                    target={link.isEmail ? undefined : "_blank"} 
+                    className={`${link.hoverColor} hover:scale-110 transition-all`}
+                  >
+                    {link.icon}
+                    <span className="sr-only">{link.name}</span>
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent side="bottom" className="bg-gray-900 text-white border-none">
+                  <p className="text-xs font-medium">{link.name}</p>
+                </TooltipContent>
+              </Tooltip>
+            ))}
+          </TooltipProvider>
+        </div>
+
       </div>
     </section>
   )

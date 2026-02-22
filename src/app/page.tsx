@@ -9,6 +9,7 @@ import Experience from './components/Experience';
 import Addition from './components/Addition';
 import BlogSection from './components/blog-section';
 import ContactSection from './components/contact-section';
+import Footer from './components/Footer';
 
 export default function Home() {
   return (
@@ -22,6 +23,8 @@ export default function Home() {
          <Addition/>
          <BlogSection/>
          <ContactSection/>
+        
+         {/* <Footer/> */}
         </div>
       </main>
     </>

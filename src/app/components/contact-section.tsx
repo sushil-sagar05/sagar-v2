@@ -11,6 +11,7 @@ import {
   DialogClose,
   DialogTitle,
 } from "@/components/ui/dialog";
+import Footer from "./Footer";
 
 const XIcon = ({ className }: { className?: string }) => (
   <svg
@@ -143,6 +144,7 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
+        <Footer/>
     </section>
   );
 }
