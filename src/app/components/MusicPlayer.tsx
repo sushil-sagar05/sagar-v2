@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from "react";
-import { Music, AlertCircle } from "lucide-react";
+import { Music } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function MusicPlayer() {
