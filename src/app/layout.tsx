@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ScrollIndicator from "@/app/components/ScrollIndicator";
 import { ThemeProvider } from "./components/ThemeProvider"
-
+import { MusicPlayer } from "./components/MusicPlayer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -40,6 +40,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
         <ScrollIndicator />
+        <MusicPlayer />
         {children}
         </ThemeProvider>
       </body>

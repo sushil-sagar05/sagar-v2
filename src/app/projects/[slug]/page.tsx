@@ -185,7 +185,7 @@ export default function ProjectDetailsTemplate({ params }: { params: Promise<{ s
         {/* Footer Navigation */}
         {projectData.nextProject && (
           <div className="mt-40 pt-16 border-t border-slate-200 dark:border-slate-800">
-            <span className="text-xs font-black uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500 mb-4 block">Next Case Study</span>
+            <span className="text-xs font-black uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500 mb-4 block">Next Project</span>
             <Link href={`/projects/${projectData.nextProject.slug}`} className="group flex items-center gap-4">
               <h2 className="font-serif text-4xl md:text-6xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{projectData.nextProject.name}</h2>
               <ChevronRight className="w-10 h-10 text-slate-300 group-hover:translate-x-2 transition-transform" />
