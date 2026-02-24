@@ -4,6 +4,7 @@ import "./globals.css";
 import ScrollIndicator from "@/app/components/ScrollIndicator";
 import { ThemeProvider } from "./components/ThemeProvider"
 import { MusicPlayer } from "./components/MusicPlayer";
+import { PortfolioChatbot } from "./components/chatbot";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -41,6 +42,7 @@ export default function RootLayout({
         >
         <ScrollIndicator />
         <MusicPlayer />
+        <PortfolioChatbot/>
         {children}
         </ThemeProvider>
       </body>

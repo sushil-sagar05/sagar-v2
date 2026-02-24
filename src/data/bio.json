@@ -1,0 +1,167 @@
+{
+  "projects": [
+    {
+      "slug": "nyaynetra-ai",
+      "title": "Nyaynetra",
+      "tagline": "Production-grade RAG-powered legal document intelligence system with modular AI microservices and hallucination-controlled LLM pipelines.",
+      "heroImage": "/projects/nyaynetra.png",
+      "liveUrl": "https://nyaynetra-ai.vercel.app/",
+      "githubUrl": "https://github.com/sushil-sagar05/nyaynetra.ai",
+      "meta": {
+        "timeline": "3+ Months",
+        "role": "Full Stack AI Engineer (Architecture, ML, Backend, Deployment)",
+        "team": "Solo",
+        "status": "Production Deployed"
+      },
+      "techStack": [
+        "Next.js 14 (App Router)",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js (TypeScript)",
+        "MongoDB",
+        "FastAPI / Flask Microservices",
+        "SentenceTransformers",
+        "InLegalBERT Embeddings",
+        "Hugging Face Inference API",
+        "Vector-based Retrieval (RAG)",
+        "Cosine Similarity",
+        "Vercel Deployment",
+        "Hugging Face Spaces"
+      ],
+      "overview": "Nyaynetra is a full-stack AI document intelligence platform designed to analyze legal and contractual documents using Retrieval-Augmented Generation (RAG). The system combines semantic embedding search, clause-aware chunking, structured LLM outputs, and microservice-based AI inference to deliver grounded, hallucination-minimized results. It was architected with production deployment, scalability, and model offloading in mind.",
+      "features": [
+        {
+          "title": "Frontend Architecture (Next.js 14 + TypeScript)",
+          "desc": "Built using App Router with server/client component separation. Implements secure document uploads, streaming AI responses, structured result dashboards, and modular UI sections for summarization, clause tagging, and risk detection. Strong type safety using TypeScript across API boundaries."
+        },
+        {
+          "title": "Backend Layer (Express + TypeScript)",
+          "desc": "Handles authentication, document upload processing, request validation, API orchestration, and communication with AI microservices. Implements structured response aggregation, error handling, retry logic, and environment-based configuration for production deployment."
+        },
+        {
+          "title": "Microservice-Based AI Architecture",
+          "desc": "AI workloads are separated into independent Python microservices (FastAPI/Flask) for summarization, risk detection, clause tagging, and embedding generation. This separation ensures scalability, modularity, and clean isolation between business logic and ML inference."
+        },
+        {
+          "title": "RAG Pipeline Implementation",
+          "desc": "Implements Retrieval-Augmented Generation using embedding-based semantic search. Documents are chunked using clause-aware strategies, converted into embeddings via SentenceTransformers (InLegalBERT), stored as vectors, and queried using cosine similarity before injecting retrieved context into the LLM."
+        }
+      ],
+      "challenges": [
+        "Preventing LLM hallucinations when analyzing long legal documents.",
+        "Designing an efficient clause-aware chunking strategy for better semantic retrieval.",
+        "Managing token limits while preserving contextual completeness.",
+        "Separating heavy ML inference from backend logic for production stability.",
+        "Ensuring consistent structured JSON outputs from LLM responses.",
+        "Deploying multi-service architecture across Vercel and Hugging Face."
+      ],
+      "learnings": [
+        "Deep understanding of Retrieval-Augmented Generation systems.",
+        "Designing scalable AI microservice architectures.",
+        "Embedding-based semantic search and vector similarity computation.",
+        "LLM prompt engineering for structured outputs.",
+        "Production deployment of AI systems without local heavy GPU hosting.",
+        "Bridging full-stack development with applied machine learning pipelines."
+      ],
+      "nextProject": {
+        "name": "Math Agent",
+        "slug": "math-agent"
+      }
+    },
+    {
+      "slug": "moviemeter",
+      "title": "MovieMeter",
+      "tagline": "Full-stack movie discovery platform featuring a custom-built content-based recommendation engine using vector modeling and similarity scoring.",
+      "heroImage": "/projects/moviemeter.png",
+      "liveUrl": "https://moviemeter.vercel.app/",
+      "githubUrl": "https://github.com/sushil-sagar05/moviemeter",
+      "meta": {
+        "timeline": "2+ Months",
+        "role": "Full Stack Developer & ML Engineer",
+        "team": "Solo",
+        "status": "Completed"
+      },
+      "techStack": [
+        "React / Next.js",
+        "TypeScript",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Content-Based Filtering",
+        "TF-IDF Vectorization",
+        "Cosine Similarity",
+        "REST API Design",
+        "JWT Authentication"
+      ],
+      "overview": "MovieMeter is a full-stack movie exploration and recommendation platform that integrates a custom-built content-based filtering engine. Instead of relying on third-party APIs for recommendations, the system models movies and users as numerical vectors and computes personalized recommendations using similarity scoring.",
+      "nextProject": {
+        "name": "Complaint Hub",
+        "slug": "complaint-hub"
+      }
+    },
+    {
+      "slug": "math-agent",
+      "title": "AI Math Tutor Agent",
+      "tagline": "Advanced conversational AI math tutor with LangGraph orchestration, DSPy symbolic reasoning, Qdrant semantic search, and MCP web search fallback.",
+      "heroImage": "/projects/math-agent.png",
+      "githubUrl": "https://github.com/sushil-sagar05/Ai-Math-Tutor-Agent",
+      "meta": {
+        "timeline": "2+ Months",
+        "role": "Full Stack AI Engineer (AI Agent, Backend, Frontend, Architecture)",
+        "team": "Solo",
+        "status": "Development Complete"
+      },
+      "techStack": [
+        "React / Next.js",
+        "TypeScript",
+        "FastAPI",
+        "LangGraph",
+        "DSPy",
+        "Qdrant Vector Database",
+        "Google Gemini 2.0 Flash",
+        "MCP (Model Context Protocol)",
+        "AsyncIO Streaming",
+        "Human-in-the-Loop Learning"
+      ],
+      "overview": "AI Math Tutor Agent is a sophisticated educational platform that transforms mathematics learning through intelligent conversation using advanced orchestration and semantic retrieval.",
+      "nextProject": {
+        "name": "MovieMeter",
+        "slug": "moviemeter"
+      }
+    },
+    {
+      "slug": "complaint-hub",
+      "title": "ComplaintHub",
+      "tagline": "Production-grade complaint management system with real-time email automation, role-based access control, and responsive dashboards.",
+      "heroImage": "/projects/complaint-hub.png",
+      "liveUrl": "https://complaint-hub.vercel.app/",
+      "githubUrl": "https://github.com/sushil-sagar05/complaint-hub",
+      "meta": {
+        "timeline": "48-Hour Hackathon",
+        "role": "Full Stack Developer",
+        "team": "Solo",
+        "status": "Production Deployed"
+      },
+      "techStack": [
+        "Next.js 14 (App Router)",
+        "TypeScript",
+        "Tailwind CSS",
+        "Shadcn/ui",
+        "MongoDB",
+        "Mongoose ODM",
+        "JWT Authentication",
+        "Nodemailer",
+        "React Hook Form + Zod",
+        "Lucide React Icons",
+        "Vercel Deployment"
+      ],
+      "overview": "ComplaintHub is a full-stack grievance management platform providing end-to-end complaint lifecycle management with automated email notifications and role-based access control.",
+      "nextProject": {
+        "name": "Nyaynetra",
+        "slug": "nyaynetra-ai"
+      }
+    }
+  ]
+}

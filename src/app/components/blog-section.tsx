@@ -3,8 +3,9 @@
 import { RoughNotation } from "react-rough-notation";
 import { ChefHat } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import { useTheme } from "next-themes";
 export default function BlogSection() {
+  const { theme } = useTheme();
   return (
     /* FIX: Full-width background container for seamless dark mode */
     <section className="relative w-full py-24 bg-white dark:bg-black transition-colors duration-500 overflow-hidden">
@@ -21,19 +22,23 @@ export default function BlogSection() {
           {/* Sidebar Title */}
           <div className="md:sticky md:top-32 h-fit text-center md:text-left">
             <h2 className="font-serif text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100">
-              Writing <br className="hidden md:block" />
-              <span className="inline-block mt-2">
-                  <RoughNotation 
-                    type="highlight" 
-                    show={true} 
-                    color="rgba(191, 219, 254, 0.3)" // Muted blue highlight for dark mode
-                    iterations={1} 
-                    padding={6}
-                  >
-                      Corner
-                  </RoughNotation>
-              </span>
-            </h2>
+  Writing <br className="hidden md:block" />
+  <span className="inline-block mt-2 dark:drop-shadow-[0_0_10px_rgba(96,165,250,0.5)]">
+    <RoughNotation 
+      type="highlight" 
+      show={true}
+      color={
+        theme === "dark"
+          ? "rgba(96, 165, 250, 0.85)"  // blue-400 strong for dark
+          : "rgba(191, 219, 254, 0.8)"  // soft blue for light
+      }
+      iterations={1}
+      padding={4}
+    >
+      Corner
+    </RoughNotation>
+  </span>
+</h2>
             <p className="mt-4 text-sm text-gray-500 dark:text-slate-400 font-medium">Thoughts on software engineering, architecture, and AI.</p>
           </div>
 
@@ -74,6 +79,7 @@ export default function BlogSection() {
               </div>
 
             </div>
+            
 
           </div>
         </div>

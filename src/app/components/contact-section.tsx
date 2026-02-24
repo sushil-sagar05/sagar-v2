@@ -39,20 +39,22 @@ export default function ContactSection() {
 
         {/* Title */}
         <h2 className="font-serif text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-100 md:text-6xl">
-          <RoughNotation
-    type="highlight"
-    show={true}
-    color={
-      theme === "dark"
-        ? "rgba(187, 247, 208, 0.75)"  // Soft blue glow for dark mode
-        : "#bbf7d0"  // Original yellow for light
-    }
-    iterations={1}
-    padding={2}
-  >
-    Get in Touch
-  </RoughNotation>
-        </h2>
+  <span className="dark:drop-shadow-[0_0_12px_rgba(74,222,128,0.45)]">
+    <RoughNotation
+      type="highlight"
+      show={true}
+      color={
+        theme === "dark"
+          ? "rgba(74, 222, 128, 0.85)"   // emerald-400 strong for dark
+          : "rgba(187, 247, 208, 0.9)"   // soft mint for light
+      }
+      iterations={1}
+      padding={4}
+    >
+      Get in Touch
+    </RoughNotation>
+  </span>
+</h2>
 
         <p className="mx-auto max-w-xl text-lg text-gray-600 dark:text-slate-400 leading-relaxed font-medium">
           I&apos;m always open to discussing new projects, creative ideas, or

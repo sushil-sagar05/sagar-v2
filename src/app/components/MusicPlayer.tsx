@@ -37,46 +37,73 @@ export function MusicPlayer() {
   }, [isPlaying]);
 
   return (
-    /* CHANGE: 
-       Mobile: top-4 left-4 (Matches your red circle)
-       Desktop: sm:top-auto sm:bottom-8 sm:left-8
-    */
     <div className="fixed top-4 left-4 sm:top-auto sm:bottom-8 sm:left-8 z-[60] flex items-center gap-3 group/player">
-      <audio 
-        ref={audioRef} 
-        src="/fav-track.mp3" 
-        loop 
-        onError={() => setHasError(true)} 
-      />
+      <audio ref={audioRef} src="/fav-track.mp3" loop onError={() => setHasError(true)} />
 
       <AnimatePresence>
         {showDoodle && !isPlaying && !hasError && (
-          /* CHANGE: Doodle positions differently on mobile to point UP 
-             or sit beside the icon instead of above it.
-          */
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.9, x: -10 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
             className="absolute top-12 left-0 sm:top-auto sm:bottom-16 sm:left-4 pointer-events-none flex flex-col items-start"
           >
-            <span className="font-serif text-blue-500 dark:text-blue-400 font-bold italic text-[10px] sm:text-sm whitespace-nowrap mb-1">
-              Vibe with me?
-            </span>
-            <svg 
-              width="30" 
-              height="30" 
-              viewBox="0 0 100 100" 
-              className="text-slate-300 dark:text-slate-700 fill-none stroke-current stroke-[4] rotate-[180deg] sm:rotate-[-10deg] ml-2"
+            {/* TEXT */}
+            <p className="font-serif text-blue-500 dark:text-blue-400 font-bold italic drop-shadow-sm ml-2">
+              <span className="sm:hidden text-[10px]">Vibe? </span>
+              <span className="hidden sm:inline text-sm whitespace-nowrap">Vibe with me?</span>
+            </p>
+
+            {/* ✨ FIXED CURVY ANIMATED ARROW */}
+            <motion.svg
+              width="45"
+              height="65"
+              viewBox="0 0 100 120"
+              className="text-slate-400 dark:text-slate-600 fill-none stroke-current stroke-[3] ml-2 mt-1"
+              animate={{ y: [0, -3, 0] }}
+              transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
             >
-              <path d="M20 10 Q 20 50, 20 80" strokeLinecap="round" />
-              <path d="M5 65 L 20 80 L 35 65" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+              {/* DESKTOP PATH: Swoops down and left (sm:block)
+                MOBILE PATH: Swoops up and right (block sm:hidden)
+              */}
+              <motion.path
+                // Mobile Path (Top-left pointing up)
+                className="block sm:hidden"
+                d="M30 100 C 10 70, 60 40, 25 15"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+              />
+              <motion.path
+                // Mobile Arrow Head
+                className="block sm:hidden"
+                d="M10 30 L 25 15 L 45 25"
+                initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
+                transition={{ duration: 1, delay: 0.3 }}
+              />
+
+              <motion.path
+                // Desktop Path (Bottom-left pointing down)
+                className="hidden sm:block"
+                d="M20 15 C 60 30, 10 70, 35 100"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+              />
+              <motion.path
+                // Desktop Arrow Head
+                className="hidden sm:block"
+                d="M20 85 L 35 100 L 55 85"
+                initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
+                transition={{ duration: 1, delay: 0.3 }}
+              />
+            </motion.svg>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <div className="flex items-center gap-2 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-1 rounded-full border border-slate-200 dark:border-slate-800 shadow-xl">
+      <div className="flex items-center gap-2 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-1 rounded-full border border-slate-200 dark:border-slate-700/50 shadow-xl">
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -103,7 +130,6 @@ export function MusicPlayer() {
           )}
         </motion.button>
 
-        {/* Volume Slider - Hidden on mobile, shown on desktop hover */}
         <div className="hidden sm:flex w-0 overflow-hidden group-hover/player:w-24 transition-all duration-500 ease-in-out items-center pr-2">
           <input
             type="range" min="0" max="1" step="0.01" value={volume}

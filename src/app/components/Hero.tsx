@@ -52,7 +52,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:hidden pointer-events-none" />
 
       {/* Dark Mode Grid (softer + premium) */}
-      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(rgba(148,163,184,0.15)_1px,transparent_1px)] [background-size:18px_18px] pointer-events-none" />
+      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(rgba(148,163,184,0.08)_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
 
       <div className="relative mx-auto w-full max-w-5xl flex flex-col items-center text-center md:items-start md:text-left gap-6">
 
@@ -70,81 +70,83 @@ export function Hero() {
         <div className="flex flex-col gap-4">
           <RoughNotationGroup show={true}>
 
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 tracking-tight leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 tracking-tight leading-tight">
               Hi, I'm Sushil Sagar
               <span className="text-gray-300 dark:text-slate-700 font-normal hidden sm:inline-block mx-2">|</span>
-              <span className="block sm:inline text-2xl md:text-4xl text-gray-500 dark:text-slate-400 mt-2 sm:mt-0 font-medium">
+              <span className="block sm:inline text-2xl md:text-4xl text-gray-500 dark:text-slate-300 mt-2 sm:mt-0 font-medium">
                 Full Stack AI Developer
               </span>
             </h1>
 
-            <div className="mt-4 text-xl md:text-2xl font-serif leading-relaxed text-gray-700 dark:text-slate-300 max-w-3xl space-y-6">
+            <div className="mt-4 text-xl md:text-2xl font-serif leading-relaxed text-gray-700 dark:text-slate-200 max-w-3xl space-y-6">
               <p>
                 Building{' '}
                 <span className="relative whitespace-nowrap">
-  {/* Light Mode */}
-  <span className="dark:hidden">
-    <RoughNotation
-      type="highlight"
-      color="#fef08a"
-      iterations={1}
-      multiline
-    >
-      <span className="text-black font-medium px-1">
-        intelligent autonomous systems
-      </span>
-    </RoughNotation>
-  </span>
 
-  {/* Dark Mode */}
-  <span className="hidden dark:inline">
-    <RoughNotation
-      type="highlight"
-      color="#facc15"
-      iterations={1}
-      multiline
-    >
-      <span className="text-gray-100 font-medium px-1">
-        intelligent autonomous systems
-      </span>
-    </RoughNotation>
-  </span>
-</span>{' '}
+                  {/* Light Mode */}
+                  <span className="dark:hidden">
+                    <RoughNotation
+                      type="highlight"
+                      color="#fef08a"
+                      iterations={1}
+                      multiline
+                    >
+                      <span className="text-black font-medium px-1">
+                        intelligent autonomous systems
+                      </span>
+                    </RoughNotation>
+                  </span>
+
+                  {/* Dark Mode */}
+                  <span className="hidden dark:inline">
+                    <RoughNotation
+                      type="highlight"
+                      color="rgba(250, 204, 21, 0.85)"
+                      iterations={1}
+                      multiline
+                    >
+                      <span className="text-slate-100 font-medium px-1">
+                        intelligent autonomous systems
+                      </span>
+                    </RoughNotation>
+                  </span>
+                </span>{' '}
                 and{' '}
                 <span className="relative whitespace-nowrap">
-  {/* Light Mode */}
-  <span className="dark:hidden">
-    <RoughNotation
-      type="highlight"
-      color="#bfdbfe"
-      iterations={1}
-      multiline
-    >
-      <span className="text-black font-medium px-1">
-        webapps
-      </span>
-    </RoughNotation>
-  </span>
 
-  {/* Dark Mode */}
-  <span className="hidden dark:inline">
-    <RoughNotation
-      type="highlight"
-      color="#60a5fa"
-      iterations={1}
-      multiline
-    >
-      <span className="text-gray-100 font-medium px-1">
-        webapps.
-      </span>
-    </RoughNotation>
-  </span>
-</span>
+                  {/* Light Mode */}
+                  <span className="dark:hidden">
+                    <RoughNotation
+                      type="highlight"
+                      color="#bfdbfe"
+                      iterations={1}
+                      multiline
+                    >
+                      <span className="text-black font-medium px-1">
+                        webapps
+                      </span>
+                    </RoughNotation>
+                  </span>
+
+                  {/* Dark Mode */}
+                  <span className="hidden dark:inline">
+                    <RoughNotation
+                      type="highlight"
+                      color="rgba(96, 165, 250, 0.85)"
+                      iterations={1}
+                      multiline
+                    >
+                      <span className="text-slate-100 font-medium px-1">
+                        webapps.
+                      </span>
+                    </RoughNotation>
+                  </span>
+                </span>
               </p>
 
               {/* Tech Focus */}
               <div className="space-y-4">
-                <p className="text-gray-500 dark:text-slate-400 text-lg flex flex-wrap justify-center md:justify-start items-center gap-2 font-sans">
+                <p className="text-gray-500 dark:text-slate-300 text-lg flex flex-wrap justify-center md:justify-start items-center gap-2 font-sans">
                   Focusing on AI/ML pipelines, Agents, and Full-Stack Apps using:
                 </p>
 
@@ -158,7 +160,7 @@ export function Hero() {
                   ].map((skill) => (
                     <div
                       key={skill.name}
-                      className="inline-flex items-center gap-2 px-3 py-2 bg-[#f8f8f8] dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-xl transition-all hover:bg-white dark:hover:bg-slate-800 hover:border-gray-400 dark:hover:border-slate-600 shadow-sm"
+                      className="inline-flex items-center gap-2 px-3 py-2 bg-[#f8f8f8] dark:bg-slate-900/70 border border-gray-200 dark:border-slate-700 rounded-xl transition-all hover:bg-white dark:hover:bg-slate-800 hover:border-gray-400 dark:hover:border-slate-500 shadow-sm"
                     >
                       <skill.icon className={`w-4 h-4 ${skill.color}`} />
                       <span className="font-bold text-sm text-gray-800 dark:text-slate-200">
@@ -173,7 +175,7 @@ export function Hero() {
         </div>
 
         {/* Availability */}
-        <span className="font-serif text-lg text-gray-400 dark:text-slate-500 italic">
+        <span className="font-serif text-lg text-gray-400 dark:text-slate-400 italic">
           currently open to new opportunities.
         </span>
 
@@ -191,7 +193,7 @@ export function Hero() {
             size="lg"
             asChild
             variant="outline"
-            className="h-12 px-8 text-lg bg-white dark:bg-transparent text-black dark:text-white border border-gray-200 dark:border-slate-800 rounded-full hover:border-black dark:hover:border-white transition-all hover:-translate-y-1"
+            className="h-12 px-8 text-lg bg-white dark:bg-transparent text-black dark:text-white border border-gray-200 dark:border-slate-700 rounded-full hover:border-black dark:hover:border-white transition-all hover:-translate-y-1"
           >
             <Link href={resumeLink} className="flex items-center gap-2">
               <IoDocumentTextOutline className="w-5 h-5" />
@@ -201,7 +203,7 @@ export function Hero() {
         </div>
 
         {/* Social Links */}
-        <div className="flex items-center justify-center md:justify-start gap-5 pt-3 text-slate-400 dark:text-slate-500">
+        <div className="flex items-center justify-center md:justify-start gap-5 pt-3 text-slate-400 dark:text-slate-400">
           <TooltipProvider>
             {socialLinks.map((link) => (
               <Tooltip key={link.name} delayDuration={100}>

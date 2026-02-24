@@ -58,14 +58,14 @@ const projects = [
     live: "https://nyaynetra-ai.vercel.app/",
     code: "https://github.com/sushil-sagar05/nyaynetra.ai",
     video: "https://www.youtube.com/embed/njpeEyhRlCo",
-    bgColor: "bg-indigo-50 dark:bg-[#171717] ",
+    bgColor: "bg-indigo-50 dark:bg-[#111827]",
     techStack: [
       { icon: SiNextdotjs, name: "Next.js", color: "currentColor" },
-      { icon: SiReact, name: "React", color: "#61DAFB" },
       { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
       { icon: SiFastapi, name: "FastAPI", color: "#009688" },
       { icon: QdrantIcon, name: "Qdrant", color: "#CC2b5E" },
       { icon: SiLangchain, name: "LangChain", color: "#1C3C3C" },
+      { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
     ],
   },
   {
@@ -77,13 +77,13 @@ const projects = [
     live: "https://github.com/sushil-sagar05/Ai-Math-Tutor-Agent",
     code: "https://github.com/sushil-sagar05/Ai-Math-Tutor-Agent",
     video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    bgColor: "bg-indigo-50 dark:bg-[#171717]",
+    bgColor: "bg-indigo-50 dark:bg-[#111827]",
     techStack: [
       { icon: SiPython, name: "Python", color: "#3776AB" },
       { icon: SiLangchain, name: "LangGraph", color: "#1C3C3C" },
       { icon: SiFastapi, name: "FastAPI", color: "#009688" },
       { icon: QdrantIcon, name: "Qdrant", color: "#CC2b5E" },
-      { icon: SiNextdotjs, name: "Next.js", color: "currentColor" },
+      { icon: SiReact, name: "React", color: "#61DAFB" },
     ],
   },
   {
@@ -95,7 +95,7 @@ const projects = [
     live: "https://movie-meter-fullstack.onrender.com/",
     code: "https://github.com/sushil-sagar05/Movie-Meter",
     video: "",
-    bgColor: "bg-indigo-50 dark:bg-[#171717]",
+    bgColor: "bg-indigo-50 dark:bg-[#111827]",
     techStack: [
       { icon: SiReact, name: "React", color: "#61DAFB" },
       { icon: SiNodedotjs, name: "Node.js", color: "#339933" },
@@ -112,7 +112,7 @@ const projects = [
     live: "https://complain-management-mu.vercel.app/",
     code: "https://github.com/sushil-sagar05/complain-management",
     video: "",
-    bgColor: "bg-indigo-50 dark:bg-[#171717]",
+    bgColor: "bg-indigo-50 dark:bg-[#111827]",
     techStack: [
       { icon: SiNextdotjs, name: "Next.js", color: "#000000" },
       { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
@@ -123,34 +123,35 @@ const projects = [
 
 export default function Work() {
   const { theme } = useTheme();
+
   return (
     <section className="relative w-full py-24 bg-white dark:bg-black transition-colors duration-500 overflow-hidden">
       
       {/* Light Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:hidden pointer-events-none" />
 
-      {/* Dark Grid */}
-      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(rgba(148,163,184,0.12)_1px,transparent_1px)] [background-size:18px_18px] pointer-events-none" />
+      {/* Dark Grid (softer) */}
+      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(rgba(148,163,184,0.08)_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-5xl px-4">
         
         {/* Header */}
-        <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 font-serif text-gray-900 dark:text-gray-100">
-  Featured{" "}
-  <RoughNotation
-    type="highlight"
-    show={true}
-    color={
-      theme === "dark"
-        ? "rgba(59, 130, 246, 0.75)"  
-        : "#fef08a"  
-    }
-    iterations={1}
-    padding={2}
-  >
-    Work
-  </RoughNotation>
-</h2>
+        <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 font-serif text-gray-900 dark:text-slate-100">
+          Featured{" "}
+          <RoughNotation
+            type="highlight"
+            show={true}
+            color={
+              theme === "dark"
+                ? "rgba(96, 165, 250, 0.85)"
+                : "#fef08a"
+            }
+            iterations={1}
+            padding={3}
+          >
+            Work
+          </RoughNotation>
+        </h2>
 
         {/* Grid */}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
@@ -160,15 +161,13 @@ export default function Work() {
               className="group flex flex-col overflow-hidden rounded-[2rem]
               border border-gray-200 dark:border-slate-700
               bg-white
-              dark:bg-[#171717]
-              shadow-sm dark:shadow-lg dark:shadow-black/40
+              dark:bg-[#111827]
+              shadow-sm dark:shadow-xl dark:shadow-black/40
               transition-all duration-300
               hover:shadow-2xl dark:hover:shadow-black/60"
             >
-              
-              {/* Image Area */}
               <div className={`relative aspect-[16/10] p-4 sm:p-6 overflow-hidden border-b border-gray-100 dark:border-slate-800 ${project.bgColor}`}>
-                <div className="relative w-full h-full rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-600 shadow-sm bg-white dark:bg-slate-800">
+                <div className="relative w-full h-full rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-600 shadow-sm bg-white dark:bg-slate-900">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -178,14 +177,13 @@ export default function Work() {
                 </div>
               </div>
 
-              {/* Content */}
               <div className="flex flex-col flex-grow p-8">
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="font-bold text-2xl text-gray-900 dark:text-gray-100 tracking-tight">
+                  <h3 className="font-bold text-2xl text-gray-900 dark:text-slate-100 tracking-tight">
                     {project.title}
                   </h3>
 
-                  <div className="flex items-center gap-3 text-gray-400 dark:text-slate-500">
+                  <div className="flex items-center gap-3 text-gray-400 dark:text-slate-400">
                     <TooltipProvider delayDuration={100}>
                       {project.live && (
                         <Tooltip>
@@ -199,7 +197,6 @@ export default function Work() {
                           </TooltipContent>
                         </Tooltip>
                       )}
-
                       {project.code && (
                         <Tooltip>
                           <TooltipTrigger asChild>
@@ -212,40 +209,17 @@ export default function Work() {
                           </TooltipContent>
                         </Tooltip>
                       )}
-
-                      {project.video && (
-                        <Dialog>
-                          <DialogTrigger asChild>
-                            <button>
-                              <PlayCircle className="w-5 h-5 hover:text-gray-900 dark:hover:text-white transition-colors" />
-                            </button>
-                          </DialogTrigger>
-                          <DialogContent className="max-w-4xl bg-black p-0 border-0 rounded-2xl overflow-hidden">
-                            <DialogHeader className="sr-only">
-                              <DialogTitle>Demo of {project.title}</DialogTitle>
-                              <DialogDescription />
-                            </DialogHeader>
-                            <div className="relative aspect-video">
-                              <iframe
-                                src={project.video}
-                                className="absolute inset-0 h-full w-full"
-                                allowFullScreen
-                              />
-                            </div>
-                          </DialogContent>
-                        </Dialog>
-                      )}
                     </TooltipProvider>
                   </div>
                 </div>
 
-                <p className="text-gray-500 dark:text-slate-400 text-[15px] leading-relaxed line-clamp-3 mb-6">
+                <p className="text-gray-500 dark:text-slate-300 text-[15px] leading-relaxed line-clamp-3 mb-6">
                   {project.description}
                 </p>
 
                 <div className="mt-auto flex justify-between gap-6">
                   <div>
-                    <p className="text-xs font-black uppercase tracking-widest text-gray-400 dark:text-slate-500 mb-3">
+                    <p className="text-xs font-black uppercase tracking-widest text-gray-400 dark:text-slate-400 mb-3">
                       Tech Stack
                     </p>
                     <div className="flex flex-wrap gap-3 items-center">
@@ -253,19 +227,19 @@ export default function Work() {
                         <TooltipProvider key={i} delayDuration={100}>
                           <Tooltip>
                             <TooltipTrigger asChild>
-                              <div className="cursor-default hover:scale-110 transition-transform dark:brightness-125">
-                               <tech.icon
+                              <div className="cursor-default hover:scale-110 transition-transform dark:brightness-110">
+                                <tech.icon
                                   className={`w-6 h-6 ${
                                     tech.name === "Next.js"
                                       ? "text-black dark:text-white"
                                       : ""
-                                    }`}
+                                  }`}
                                   style={
-                                     tech.name !== "Next.js"
-                                     ? { color: tech.color }
+                                    tech.name !== "Next.js"
+                                      ? { color: tech.color }
                                       : undefined
                                   }
-                            />
+                                />
                               </div>
                             </TooltipTrigger>
                             <TooltipContent className="bg-slate-900 dark:bg-white text-white dark:text-black font-bold">
@@ -280,7 +254,7 @@ export default function Work() {
                   <div className="flex items-end">
                     <Link
                       href={`/projects/${project.slug}`}
-                      className="inline-flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group/btn"
+                      className="inline-flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-slate-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group/btn"
                     >
                       View Details
                       <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />

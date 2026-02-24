@@ -28,7 +28,7 @@ export default function ScrollIndicator() {
     <div className="fixed right-5 md:right-6 top-24 bottom-24 z-50 flex flex-col items-center pointer-events-none">
       
       {/* The gray background track line */}
-      <div className="relative h-full w-[2px] bg-gray-200 dark:bg-slate-700 rounded-full">
+      <div className="relative h-full w-[2px]  bg-gray-200 dark:bg-slate-700 rounded-full">
         
         {/* The active black fill line */}
         <motion.div
